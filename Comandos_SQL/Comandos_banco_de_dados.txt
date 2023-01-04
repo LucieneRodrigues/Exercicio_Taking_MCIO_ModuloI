@@ -1,0 +1,45 @@
+create database exercicio_taking_mcio_moduloI;
+
+create table pessoa (
+Pessoa_id int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (Pessoa_id),
+Nome Varchar(200) not null,
+Cpf Varchar(25) not null,
+Idade Date,
+Sex char(1) not null
+);
+
+insert into pessoa
+(Pessoa_id, Nome, CPF, Idade, Sexo)
+values
+(default, 'Maria Aparecida','29383838890', '1999-05-30', 'F'),
+(default,'Antonia Oliveira','293838388399', '1988-10-05', 'F'),
+(default,'Jose Pedro de Jesus','293838386354', '1975-07-25', 'M');
+
+create table Endereco(
+Endereco_id int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (Endereco_id),
+Tipo Varchar(10) not null,
+logradouro Varchar(250) not null,
+Numero Varchar(10),
+Complemento varchar(100),
+Cep Numeric Not null,
+Cidade Varchar (250) Not null,
+Estado Char(2)
+);
+
+
+insert into Endereco
+(Endereco_id, Tipo, logradouro,Numero, Complemento, Cep, Cidade, Estado)
+values
+(default, 'Rua','Rua das Margaridas', '55','casa', '02846000','Salvador', 'Ba'),
+(default, 'Avenida','Av das Mangabeiras', '128','0', '02886001','Feira de Santana', 'Ba'),
+(default, 'Praca','Praca das Bandeiras', '55', 'fundos','02848010','Salvador', 'Ba');
+
+alter table Endereco
+add column Pessoa_id int first;
+
+alter table Endereco
+add FOREIGN KEY(Pessoa_id) 
+REFERENCES pessoa(Pessoa_id);
+

@@ -1,0 +1,4 @@
+
+SELECT * 
+from exercicio_taking_mcio_moduloi.pessoa pm inner join exercicio_taking_mcio_moduloi.endereco em on pm.Pessoa_id = em.Endereco_id
+
